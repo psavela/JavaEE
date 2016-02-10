@@ -1,7 +1,7 @@
 <%-- 
     Document   : second
-    Created on : Feb 9, 2016, 1:04:45 PM
-    Author     : Ohjelmistokehitys
+    Created on : 10.2.2016, 13:20:39
+    Author     : Opiframe
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>You are in the second page of the app</h1>
+        <h1>Rivitä pitkät rivit</h1>
     </body>
 </html>

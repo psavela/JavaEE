@@ -1,6 +1,8 @@
 
 package com.base.controller;
 
+import com.base.DAO.TeacherDAO;
+import com.base.models.Teachers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +14,23 @@ public class DefaultController {
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index(ModelMap map){
         //Define attributes you want to use in your template index.jsp
-        map.addAttribute("name", "psavela");
-        
+        map.addAttribute("name", "Markus Veijola");
         return "index";
-    } 
+    }
     
     @RequestMapping(value="/second", method=RequestMethod.GET)
     public String second(ModelMap map){
-        //Render second.jsp      
+        Teachers s = new Teachers();
+        s.setTName("Markus Veijola");
+        s.setTSubject("Programming");
+        s.setEmail("markus.veijola@opiframe.com");
+        s.setPhone("040584787487");
+        try{
+            TeacherDAO.addTeacher(s);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        //Render second.jsp
         return "second";
-    }     
-    
-    
+    }
 }
