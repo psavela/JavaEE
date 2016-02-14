@@ -29,17 +29,19 @@ public class DefaultController {
             e.printStackTrace();
         }
         return "second";
-    }    
-        @RequestMapping(value="/teacher", method=RequestMethod.POST)
-        public String addNewTeacher(@ModelAttribute("teacher") Teachers teach, ModelMap map){
-
-            try{
-                TeacherDAO.addTeacher(teach);
-                map.addAttribute("save_info", "Teacher added successfully");
-            }catch(Exception e){
-                map.addAttribute("save_info", "Database error");
-                e.printStackTrace();
-            }
-            return "second";
+    }
+    
+    @RequestMapping(value="/teacher", method=RequestMethod.POST)
+    public String addNewTeacher(@ModelAttribute("teacher") Teachers teach,ModelMap map){
+        
+        try{
+            TeacherDAO.addTeacher(teach);
+            map.addAttribute("save_info", "Teacher added succesfully!");
+            map.addAttribute("teachers",TeacherDAO.getTeachers());
+        }catch(Exception e){
+            map.addAttribute("save_info", "Database error!");
+            e.printStackTrace();
         }
+        return "second";
+    }
 }
