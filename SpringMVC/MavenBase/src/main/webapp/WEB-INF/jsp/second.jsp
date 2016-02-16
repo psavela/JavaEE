@@ -10,7 +10,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
         <title>Teacher</title>
@@ -30,13 +31,11 @@
                         <form:input class="form-control" path="phone"></form:input><br/>
                         <form:label path="">Subject</form:label><br/>
                         <form:input class="form-control" path="TSubject"></form:input><br/>
-                        <input class="btn-primary" type="submit" value="Save Teacher"/>
+                        <input class="btn btn-primary" type="submit" value="Save Teacher"/>
                     </form:form>
                     <p>${save_info}</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-offset-6 col-md-4">
+            <div class="col-md-6">
                     <table class="table-bordered table-hover">
                         <thead>
                             <tr>

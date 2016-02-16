@@ -19,13 +19,14 @@ public class DefaultController {
     
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index(ModelMap map){
-        //Define attributes you want to use in your template index.jsp
-        map.addAttribute("name", "psavela");
+        //Define attributes you want to use in your template index.js
+        map.addAttribute("isLogged", false);
         return "index";
     }
     @RequestMapping(value="/admin/second", method=RequestMethod.GET)
     public String second(ModelMap map){  
         //Render second.jsp
+		map.addAttribute("isLogged", true);
         map.addAttribute("teacher", new Teachers());
         try{           
             map.addAttribute("teachers",TeacherDAO.getTeachers());       
@@ -37,7 +38,7 @@ public class DefaultController {
     
     @RequestMapping(value="/admin/teacher", method=RequestMethod.POST)
     public String addNewTeacher(@ModelAttribute("teacher") Teachers teach,ModelMap map){
-        
+        map.addAttribute("isLogged", true);
         try{
             TeacherDAO.addTeacher(teach);
             map.addAttribute("save_info", "Teacher added succesfully!");

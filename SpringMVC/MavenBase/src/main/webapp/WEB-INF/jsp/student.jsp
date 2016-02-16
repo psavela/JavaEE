@@ -5,14 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-        <title>JSP Page</title>
+        <title>Add Student</title>
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -30,14 +29,12 @@
                         <form:label path="">Phone</form:label><br/>
                         <form:input class="form-control" path="phone"></form:input><br/>
 
-                        <input class="btn-primary" type="submit" value="Save Student"/>
+                        <input class="btn btn-primary" type="submit" value="Save Student"/>
                     </form:form>
                     <p>${save_info}</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-offset-6 col-md-4">
-                    <table class="table-bordered table-hover">
+    	        <div class="col-md-6">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -47,12 +44,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="teach" items="${students}">
+                            <c:forEach var="stud" items="${students}">
                                 <tr>
                                     <td>${stud.getSName()}</td>
+                                    <td>${stud.getAddress()}</td>
                                     <td>${stud.getEmail()}</td>
                                     <td>${stud.getPhone()}</td>
-                                    <td>${stud.getTSubject()}</td>
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -23,19 +23,23 @@ public class StudentController {
     
     @RequestMapping(value="/admin/student", method=RequestMethod.GET)
     public String renderStudent(ModelMap map){
-        
+        map.addAttribute("isLogged", true);
+        map.addAttribute("student", new Students());
+        try{
+            map.addAttribute("students", StudentDAO.getAllStudents());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         return "student";
     }
     
     @RequestMapping(value="/admin/student", method=RequestMethod.POST)
-    public String addNewStudent(@ModelAttribute("student") Students stud,ModelMap map){
-        
+    public String addNewTeacher(@ModelAttribute("student") Students stud,ModelMap map){
+        map.addAttribute("isLogged", true);
         try{
             StudentDAO.addStudent(stud);
-            map.addAttribute("save_info", "Student added succesfully!");
-            map.addAttribute("student",StudentDAO.getStudents());
+            map.addAttribute("students", StudentDAO.getAllStudents());
         }catch(Exception e){
-            map.addAttribute("save_info", "Database error!");
             e.printStackTrace();
         }
         return "student";

@@ -28,7 +28,7 @@
                         <input class="form-control" type="text" id="username" name="username"/><br/>
                         <label>Password:</label><br/>
                         <input class="form-control" type="password" id="password" name="password"/><br/>
-                        <input class="btn-primary" type="submit" value="Login"/>
+                        <input class="btn btn-primary" type="submit" value="Login"/>
                     </form:form>
                         <p style="color:red;">${login_error}</p>
                 </div>
