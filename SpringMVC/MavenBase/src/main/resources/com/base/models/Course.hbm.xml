@@ -17,7 +17,7 @@
         <property name="CInfo" type="string">
             <column name="c_info" length="65535" />
         </property>
-        <set name="relTables" table="rel_table" inverse="true" lazy="true" fetch="select">
+        <set name="relTables" table="rel_table" inverse="true" lazy="true" fetch="select">  
             <key>
                 <column name="c_id" />
             </key>

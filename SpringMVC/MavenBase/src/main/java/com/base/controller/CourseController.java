@@ -5,8 +5,8 @@
  */
 package com.base.controller;
 
-import com.base.DAO.StudentDAO;
-import com.base.models.Students;
+import com.base.DAO.CourseDAO;
+import com.base.models.Course;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,30 +19,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-public class StudentController {
+public class CourseController {
     
-    @RequestMapping(value="/admin/student", method=RequestMethod.GET)
-    public String renderStudent(ModelMap map){
+    @RequestMapping(value="/admin/course", method=RequestMethod.GET)
+    public String renderCourse(ModelMap map){
         map.addAttribute("isLogged", true);
-        map.addAttribute("student", new Students());
+        map.addAttribute("course", new Course());
         try{
-            map.addAttribute("students", StudentDAO.getAllStudents());
+            map.addAttribute("courses", CourseDAO.getAllCourses());
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "student";
+        return "course";
     }
     
-    @RequestMapping(value="/admin/student", method=RequestMethod.POST)
-    public String addNewStudent(@ModelAttribute("student") Students stud,ModelMap map){
+    @RequestMapping(value="/admin/course", method=RequestMethod.POST)
+    public String addNewCourse(@ModelAttribute("course") Course cour,ModelMap map){
         map.addAttribute("isLogged", true);
         try{
-            StudentDAO.addStudent(stud);
-            map.addAttribute("students", StudentDAO.getAllStudents());
+            CourseDAO.addCourse(cour);
+            map.addAttribute("courses", CourseDAO.getAllCourses());
         }catch(Exception e){
             e.printStackTrace();
         }
-        return "student";
+        return "course";
     }
     
 }

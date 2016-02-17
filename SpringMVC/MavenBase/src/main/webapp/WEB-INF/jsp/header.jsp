@@ -17,6 +17,7 @@
                 <c:if test="${isLogged == true}">
                     <li><a href="/logout">Logout</a></li>
                     <li><a href="/admin/student">Add Student</a></li>
+                    <li><a href="/admin/course">Add Course</a></li>
                 </c:if>
             </ul>
         </div>
